@@ -1,0 +1,93 @@
+	<!doctype html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>WaxTracks</title>
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	</head>
+	<body>
+		<div class="header">
+			<img src="images/waxtracks.png" width="1000" height="200" id="logo">
+			<img src="images/recordstore.jpeg" height="200" width="275" id="store"/></div>
+			<div id="nav">
+				<ul>
+					<li><a href="#about">About</a></li>
+					<li><a href="#shoponline">Shop Online</a></li>
+					<li><a href="#location">Location</a></li>
+				</ul>
+			</div>
+			<a name="about"></a>
+			<div class="about">
+				<p>We sell new and used vinyl and CDs in a variety of genres including classic rock, alternative rock, pop, classical, rap, and hip-hop. We also sell DVDs, record players, and merchandise like posters and apparel.</p>
+				<p>Located in Madison, Wisconsin, our store has been serving the community for fourty years.</p>
+			</div>
+			<a name="shoponline"></a>
+			<div class="shoponline">
+				<p>Now you can shop online. Check out our online store.</p>
+				<div class="shoplinks">
+					<a href="http://www.amoeba.com/music/new-releases/#/"><img src="images/beatles.jpeg" height="300" width="300"/><h2><span>Used Vinyl and CDs</span></h2></a>
+					<a href="http://www.amoeba.com/music/cd-and-vinyl/#/"><img src="images/flaminglips.jpeg" height="300" width="300"/>
+						<h2><span>New Vinyl and CDs</span></h2></a>
+						<a href="http://www.amazon.com/s/?ie=UTF8&keywords=record+player&tag=googhydr-20&index=aps&hvadid=30714267641&hvpos=1t1&hvexid=&hvnetw=g&hvrand=16410246054561751788&hvpone=&hvptwo=&hvqmt=b&hvdev=c&ref=pd_sl_21wpp1eruu_b"><img src="images/recordplayer.jpeg" height="300" width="300"/>  <h2><span>Record Players</span></h2></a>
+						<a href="http://www.amoeba.com/movies/dvd-and-bluray/#/"><img src="images/moonrise.jpeg" height="300" width="300"/>
+							<h2><span>DVDs</span></h2></a>
+						</div>
+					</div>
+					<a name="location"></a>
+					<div class="location">
+						<p> WaxTracks | 1980 State Street, Madison, Wisconsin 90085 | 414.900.8017 | M-Sat: 10 am-8:30 pm, Sunday 10 am-6pm</p>
+						<p>WE BUY AND SELL NEW AND USED DVDs, USED CDs, NEW AND USED VINYL AND DVDs</p>
+					</div>
+				</div>
+
+				<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$(".contactLink").click(function(){
+							if ($("#contactForm").is(":hidden")){
+								$("#contactForm").slideDown("slow");
+							}
+							else{
+								$("#contactForm").slideUp("slow");
+							}
+						});
+					});
+					function closeForm(){
+						$("#messageSent").show("slow");
+						setTimeout('$("#messageSent").hide();$("#contactForm").slideUp("slow")', 2000);
+					}
+
+					$(document).ready(function() {
+						function filterPath(string) {
+							return string
+							.replace(/^\//,'')
+							.replace(/(index|default).[a-zA-Z]{3,4}$/,'')
+							.replace(/\/$/,'');
+						}
+						$('a[href*=#]').each(function() {
+							if ( filterPath(location.pathname) == filterPath(this.pathname)
+								&& location.hostname == this.hostname
+								&& this.hash.replace(/#/,'') ) {
+								var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) +']');
+							var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
+							if ($target) {
+								var targetOffset = $target.offset().top;
+								$(this).click(function() {
+									$('html, body').animate({scrollTop: targetOffset}, 1000);
+									var d = document.createElement("div");
+									d.style.height = "101%";
+									d.style.overflow = "hidden";
+									document.body.appendChild(d);
+									window.scrollTo(0,scrollToM);
+									setTimeout(function() {
+										d.parentNode.removeChild(d);
+									}, 10);
+									return false;
+								});
+							}
+						}
+					});
+					});
+</body>
+</html>
